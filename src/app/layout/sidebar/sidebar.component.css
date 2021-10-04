@@ -1,0 +1,20 @@
+.menu-container{
+  width:12%;
+  height: 90%;
+  background: #05284C;
+  border-radius: 40px;
+ margin: 30px 30px;
+ width: 264px;
+ height: 670px;
+}
+a{
+  margin: 15px 15px;
+}
+.title{
+  margin-top: 45px;
+  margin-bottom: 20px;
+}
+svg{
+  display: inline-block;
+  margin-right: 1em;
+}
