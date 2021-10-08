@@ -70,8 +70,7 @@ export class ReporteGeneralComponent implements OnInit {
       }));
     var vv=0;
     for(let i=0;i<this.hosp.length;i++){
-      
-     vv=vv+1;
+   
      dat.features.push(JSON.parse(JSON.stringify({
       "type":"Feature",
       "properties":{"name":this.hosp[i].nameHospital},
@@ -188,7 +187,9 @@ export class ReporteGeneralComponent implements OnInit {
       this.map.getCanvas().style.cursor = '';
       });
       });
-  
+      this.map.on('dblclick', (e) => {
+        console.log(`A dblclick event has occurred on a visible portion of the poi-label layer at ${e.lngLat}`);
+        });
   }
 
   
@@ -208,9 +209,7 @@ export class ReporteGeneralComponent implements OnInit {
     
     .addTo(this.map);
 
-    this.map.on('dblclick', (e) => {
-      console.log(`A dblclick event has occurred on a visible portion of the poi-label layer at ${e.lngLat}`);
-      });
+    
   }
 
 
@@ -219,7 +218,7 @@ export class ReporteGeneralComponent implements OnInit {
     this.hos.all().subscribe(
       data => {
         this.hosp = data;
-       //this.marcadores();
+      
        this.clusters();
         console.log(this.hosp);
       },
