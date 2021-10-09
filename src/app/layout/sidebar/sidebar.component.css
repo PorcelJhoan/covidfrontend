@@ -1,10 +1,11 @@
 .general-container{
   background: #F6F6F4;
   border: #F6F6F4;
+  height: 98%;
 }
 .menu-container{
   width: 280px;
-  height: 96%;
+  height: 98%;
   background: #05284C;
   border-radius: 40px;
  margin: 15px 10px;
@@ -24,9 +25,9 @@ svg{
   display: inline-block;
   margin-right: 1em;
 }
-.mat-drawer-side {
-  border-right: none !important;
-}
-.mat-drawer {
-  background-color: transparent !important;
+.sidebar-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
