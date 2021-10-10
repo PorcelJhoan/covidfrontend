@@ -4,6 +4,8 @@ import { MainComponent } from './layout/main/main.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { MapComponent } from './View/map/map.component';
 import { ReporteGeneralComponent } from './View/reporte-general/reporte-general.component';
+import { NewsComponent } from './View/news/news.component';
+import { InformationComponent } from './View/information/information.component';
 
 const routes: Routes = [
   {
@@ -11,13 +13,20 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
-        path: "mapa",component: MapComponent 
+        path: "reporte-general",component: ReporteGeneralComponent
       },
       {
-        path: "report",component: ReporteGeneralComponent
-      }
+        path: "news", component: NewsComponent
+      },
+      {
+        path: "information", component: InformationComponent
+      },
+      {
+        path: "mapa",component: MapComponent
+      },
+
     ]
-  }, 
+  },
   {
     path: '**',
     redirectTo: '',

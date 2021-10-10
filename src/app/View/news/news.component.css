@@ -1,0 +1,16 @@
+h1{
+  color:  #028090;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 62px;
+  letter-spacing: -0.06em;
+}
+.card-body{
+  box-shadow: 0px 0px 57px -7px rgba(119, 119, 119, 0.12);
+}
+.card{
+  border-radius:24px;
+  background-color: #EDEDE8; 
+}
