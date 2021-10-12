@@ -1,7 +1,10 @@
 #mapa-mapbox{
-    width: 70%;
-    height: 70%;
+    width: 75%;
+    height: 78%;
+    margin: 30px 30px;
     background-color: aquamarine;
+    border-radius:15px;
+    border: 8px solid #05284C;
 }
 
 .mapboxgl-popup-close-button {
@@ -38,6 +41,4 @@
     margin-top: 15px;
   }
   
-  .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
-    border-bottom-color: #91c949;
-  }
+  

@@ -31,9 +31,9 @@ export class ReporteGeneralComponent implements OnInit {
   
   this.map= new mapboxgl.Map({
   container: 'mapa-mapbox', // container ID
-  style: 'mapbox://styles/porceljhoan/cktzgqxzc1dm717psiuw70519', // style URL
+  style: 'mapbox://styles/porceljhoan/ckund5chf15l117pkjr30so2i', // style URL
   center: [-64.2004849, -16.0283115], // starting position
-  zoom: 5 // starting zoom
+  zoom: 4.3 // starting zoom
   });
   
     
@@ -56,7 +56,7 @@ export class ReporteGeneralComponent implements OnInit {
       features: [
         {
           "type": "Feature",
-          "properties": {"name": "Null Island"},
+          "properties": {"message": "Null Island",'iconSize': [25, 25]},
           "geometry": {
             "type": "Point",
               "coordinates": [
@@ -73,13 +73,12 @@ export class ReporteGeneralComponent implements OnInit {
    
      dat.features.push(JSON.parse(JSON.stringify({
       "type":"Feature",
-      "properties":{"name":this.hosp[i].nameHospital},
+      "properties":{"message":this.hosp[i].nameHospital,'iconSize': [25, 25]},
        "geometry":{"type":"Point", "coordinates":[this.hosp[i].longitude,this.hosp[i].latitude]}
     })))
       
     }
-    console.log("hospis :  "+vv+ "total : "+this.hosp.length );
-  console.log("hospitales :  "+JSON.stringify(dat));
+ 
    
 
     this.map.on('load', () => {
@@ -99,97 +98,38 @@ export class ReporteGeneralComponent implements OnInit {
       clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
       });
        
-      this.map.addLayer({
-      id: 'clusters',
-      type: 'circle',
-      source: 'earthquakes',
-      filter: ['has', 'point_count'],
-      paint: {
-      // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
-      // with three steps to implement three types of circles:
-      //   * Blue, 20px circles when point count is less than 100
-      //   * Yellow, 30px circles when point count is between 100 and 750
-      //   * Pink, 40px circles when point count is greater than or equal to 750
-      'circle-color': [
-      'step',
-      ['get', 'point_count'],
-      '#51b000',
-      100,
-      '#f1f000',
-      750,
-      '#f28cb1'
-      ],
-      'circle-radius': [
-      'step',
-      ['get', 'point_count'],
-      20,
-      100,
-      30,
-      750,
-      40
-      ]
-      }
-      });
-       
-      this.map.addLayer({
-      id: 'cluster-count',
-      type: 'symbol',
-      source: 'earthquakes',
-      filter: ['has', 'point_count'],
-      layout: {
-      'text-field': '{point_count_abbreviated}',
-      'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-      'text-size': 15
-      }
-      });
-       
-      this.map.addLayer({
-      id: 'unclustered-point',
-      type: 'circle',
-      source: 'earthquakes',
-      filter: ['!', ['has', 'point_count']],
-      paint: {
-      'circle-color': '#11b4da',
-      'circle-radius': 4,
-      'circle-stroke-width': 1,
-      'circle-stroke-color': '#fff'
-      }
-      });
-       
-      // inspect a cluster on click
-      this.map.on('click', 'clusters', (e) => {
-      const features = this.map.queryRenderedFeatures(e.point, {
-      layers: ['clusters']
-      });
-      const clusterId = (features[0] as any).properties.cluster_id;
-      (this.map.getSource('earthquakes') as any).getClusterExpansionZoom(
-      clusterId,
-      (err: any, zoom: any) => {
-      if (err) return;
-       
-      this.map.easeTo({
-      center: (features[0]  as any).geometry.coordinates,
-      zoom: zoom
-      });
-      }
-      );
-      });
-       
-      // When a click event occurs on a feature in
-      // the unclustered-point layer, open a popup at
-      // the location of the feature, with
-      // description HTML from its properties.
-    
-      this.map.on('mouseenter', 'clusters', () => {
-        this.map.getCanvas().style.cursor = 'pointer';
-      });
-      this.map.on('mouseleave', 'clusters', () => {
-      this.map.getCanvas().style.cursor = '';
-      });
-      });
-      this.map.on('dblclick', (e) => {
-        console.log(`A dblclick event has occurred on a visible portion of the poi-label layer at ${e.lngLat}`);
+     
+      for (const marker of dat.features) {
+        // Create a DOM element for each marker.
+        const el = document.createElement('div');
+        const width = marker.properties.iconSize[0];
+        const height = marker.properties.iconSize[1];
+        el.className = 'marker';
+        el.style.backgroundImage = `url(https://www.shareicon.net/data/128x128/2016/08/04/806609_medical_512x512.png)`;
+        el.style.width = `${width}px`;
+        el.style.height = `${height}px`;
+        el.style.backgroundSize = '100%';
+         
+        el.addEventListener('click', () => {
+        console.log(marker.geometry.coordinates);
         });
+        
+        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML (
+          'Ciudad : '+ marker.properties.message +'<br> nombre : '+marker.properties.message
+          );
+
+
+        // Add markers to the map.
+        new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(popup)
+        .addTo(this.map);
+        }
+      
+     
+     
+    
+     });
   }
 
   
@@ -218,7 +158,7 @@ export class ReporteGeneralComponent implements OnInit {
     this.hos.all().subscribe(
       data => {
         this.hosp = data;
-      
+       //this.marcadores();
        this.clusters();
         console.log(this.hosp);
       },
