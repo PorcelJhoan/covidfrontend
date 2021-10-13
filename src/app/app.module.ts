@@ -10,6 +10,11 @@ import { InformationComponent } from './View/information/information.component';
 import { BoliviaComponent } from './View/bolivia/bolivia.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +32,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
+    MatCardModule,
+    MatGridListModule,
+    MatListModule,
+    MatTabsModule
+
+
 
   ],
   providers: [],
