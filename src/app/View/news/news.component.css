@@ -7,10 +7,9 @@ h1{
   line-height: 62px;
   letter-spacing: -0.06em;
 }
-.card-body{
-  box-shadow: 0px 0px 57px -7px rgba(119, 119, 119, 0.12);
-}
-.card{
+
+mat-card{
   border-radius:24px;
-  background-color: #EDEDE8; 
+  background-color: #EDEDE8;
+  box-shadow: 0px 0px 57px -7px rgba(119, 119, 119, 0.12);
 }
