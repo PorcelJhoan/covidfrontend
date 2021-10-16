@@ -4,47 +4,68 @@
     <h1 >Reporte general COVID-19</h1>
   </div>
 
-  <div class="card text" id="card">
-    <div class="card-body text-center">
-   
-      <div class="row" id="card-info">
-        <div class="col-3">
+  <mat-card>
+    <mat-grid-list cols="4" rowHeight="4:1" id="card-info">
+      <mat-grid-tile>
+        <mat-card-content>
           <label>Total de Casos</label>
           <p>492</p>
-        </div>
-        <div class="col-3">
-          <label>Casos  Activos</label>
-          <p>492</p>
-        </div>
-        <div class="col-3">
+        </mat-card-content>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+       <mat-card-content>
+        <label>Casos  Activos</label>
+        <p>492</p>
+       </mat-card-content>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-card-content>
           <label>Recuperados</label>
           <p style="color: #64CF82">492</p>
-        </div>
-        <div class="col-3">
+        </mat-card-content>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-card-content>
           <label>Muertes</label>
           <p style="color:#FF0000;">492</p>
+        </mat-card-content>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <br>
+
+    <div id="country" class="text-center">
+      <h4>Bolivia | fecha de modificacion</h4>
+  </div>
+  </mat-card>
+
+  <br>
+  <mat-card id="cardmap" style="background: white">
+    <mat-card-header>
+      <div>
+        <label>Mapa del Mundo</label>
+        <h4>Fecha actualizacion</h4>
         </div>
-        <div id="country" class="text-center">
-          <h4>Bolivia | fecha de modificacion</h4></div>
-      </div>
-    </div>
-  </div>
+    </mat-card-header>
+    <mat-divider inset></mat-divider>
+    <mat-tab-group>
+      <mat-tab label="Mundo">  </mat-tab>
+      <mat-tab label="América"> </mat-tab>
+      <mat-tab label="Europa">  </mat-tab>
+      <mat-tab label="Asia">  </mat-tab>
+      <mat-tab label="África">  </mat-tab>
+      <mat-tab label="Oceanía">  </mat-tab>
+    </mat-tab-group>
 
-  
-
-  <div class="card" id="cardmap">
-    <div class="card-header">
-    <label>Mapa del Mundo</label>
-    <h4>Fecha actualizacion</h4>
-    </div>
-    <div class="card-body">
-    
+    <mat-card-content  id="cardmap">
       <div id="mapa-mapbox"></div>
-    </div>
+    </mat-card-content>
+  </mat-card>
 
-  </div>
 
-</div>
+
 
 
 

@@ -12,6 +12,6 @@ export class CityService {
  
 
   public all():Observable<any[]> {
-    return this.http.get<any[]>(this.Peurl+`/v1/hospital/list/all`,this.httpOptions);
+    return this.http.get<any[]>(this.Peurl+`/v1/city/all`,this.httpOptions);
   }
 }

@@ -55,12 +55,14 @@ h1{
   line-height: 62px;
   letter-spacing: -0.06em;
 }
-.card,.card-header{
+mat-card{
   border-radius:24px;
-  background-color: #EDEDE8; 
-}
-.card-body{
+  background-color: #EDEDE8;
   box-shadow: 0px 0px 57px -7px rgba(119, 119, 119, 0.12);
+  margin-bottom: 60px;
+}
+mat-tab{
+  color: #1D3150;
 }
 label{
   font-style: normal;
@@ -77,23 +79,26 @@ p{
   line-height: 34px;
   display: flex;
   letter-spacing: 0.03em;
-  color: #484848; 
+  color: #484848;
   align-items: center;
   text-align: center;
 }
 #card-info{
-  margin-top:20px;
+  margin-top:10px;
 }
 #cardmap{
-  margin-top: 120px;
-  height:980px;
-  background: #F6F6F4;
+  height:990px;
 }
-.card-header{
-  background: #F6F6F4;
 
-}
+
 #country{
   margin-top: 30px;
   color: #777777;
+}
+a{
+font-family: sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 24px;
 }
