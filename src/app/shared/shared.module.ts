@@ -8,15 +8,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
-
+import { ReporteGeneralComponent } from '../View/reporte-general/reporte-general.component';
+import { CityComponent } from '../View/bolivia/city/city.component';
+import { MunicipalityComponent } from '../View/bolivia/municipality/municipality.component';
 @NgModule({
     declarations: [
       FooterComponent,
       HeaderComponent,
       SidebarComponent,
-      MainComponent,
+      ReporteGeneralComponent,
+      CityComponent,
+      MunicipalityComponent, 
+      MainComponent
+      
     ],
-    exports: [FooterComponent, HeaderComponent, SidebarComponent, MainComponent],
+    exports: [FooterComponent, HeaderComponent, SidebarComponent, MainComponent,  MunicipalityComponent ,CityComponent,ReporteGeneralComponent],
     imports: [CommonModule, RouterModule,  ReactiveFormsModule, MatListModule,
         MatSidenavModule],
   })

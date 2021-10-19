@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReporteGeneralComponent } from './View/reporte-general/reporte-general.component';
+
 import { MapComponent } from './View/map/map.component';
 import{HttpClientModule} from '@angular/common/http';
 import { NewsComponent } from './View/news/news.component';
@@ -16,14 +16,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    ReporteGeneralComponent,
     MapComponent,
     NewsComponent,
     InformationComponent,
-    BoliviaComponent,
+    BoliviaComponent
 
   ],
   imports: [
@@ -36,11 +36,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatGridListModule,
     MatListModule,
     MatTabsModule
-
-
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }
